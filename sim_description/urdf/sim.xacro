@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<robot name="sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find sim_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find sim_description)/urdf/sim.trans" />
+<xacro:include filename="$(find sim_description)/urdf/sim.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.00031093555448540386 -0.03322594412181666 0.06386861640770332" rpy="0 0 0"/>
+    <mass value="1.5275246610432136"/>
+    <inertia ixx="0.003577" iyy="0.006808" izz="0.009088" ixy="-0.0" iyz="0.0" ixz="0.000204"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_1">
+  <inertial>
+    <origin xyz="7.632783294297951e-17 -0.014626564692252084 -5.587818583535631e-08" rpy="0 0 0"/>
+    <mass value="0.13630585125762715"/>
+    <inertia ixx="8.4e-05" iyy="0.000147" izz="8.4e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.068774 -0.051226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/wheel_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.068774 -0.051226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/wheel_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_1">
+  <inertial>
+    <origin xyz="6.245004513516506e-17 0.011626676448629455 -5.587818592556193e-08" rpy="0 0 0"/>
+    <mass value="0.13630585125762715"/>
+    <inertia ixx="8.4e-05" iyy="0.000147" izz="8.4e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 0.135226 -0.051226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/wheel_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 0.135226 -0.051226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/wheel_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="-1.4935275238769918e-13 5.58781886941806e-08 -0.010341738892562131" rpy="0 0 0"/>
+    <mass value="0.01594811641948032"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08 0.033226 -0.032226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08 0.033226 -0.032226" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find sim_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="wheel_l_to_base_link" type="continuous">
+  <origin xyz="-0.06 0.068774 0.051226" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="wheel_r_to_base_link" type="continuous">
+  <origin xyz="-0.06 -0.135226 0.051226" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="caster_to_base_link" type="fixed">
+  <origin xyz="0.08 -0.033226 0.032226" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+</robot>
