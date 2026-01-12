@@ -55,7 +55,10 @@ All perception nodes subscribe to the same camera topic for synchronized process
   * Lane mask
   * Lane center position
   * Lateral error for control
-![Lane Detection](img/lane.png)
+  * 
+<p align="center">
+  <img src="img/lane.png" width="500">
+</p>
 **Run command:**
 
 ```
@@ -83,7 +86,11 @@ ros2 run lane_detect lane_detect_node.py
 
   * Ball position in image frame
   * Visualized detection (circle / center point)
-![Lane Detection](img/ball.png)
+
+<p align="center">
+  <img src="img/ball.png" width="500">
+</p>
+
 **Run command:**
 
 ```
