@@ -55,7 +55,7 @@ All perception nodes subscribe to the same camera topic for synchronized process
   * Lane mask
   * Lane center position
   * Lateral error for control
-  * 
+  
 <p align="center">
   <img src="img/lane.png" width="500">
 </p>
@@ -120,24 +120,15 @@ ros2 launch bringup system.launch.py
 ## Camera Interface
 
 * **Topic**: `/image/image_raw`
-* **Message Type**: `sensor_msgs/Image`
 * All perception nodes subscribe to this topic
----
 
 ## Dependencies
 
 * ROS 2 Humble
 * OpenCV
 * NumPy
-* Deep Learning framework (PyTorch / TensorFlow – depending on lane model)
+* Deep Learning framework (PyTorch ,Ultralytics)
 * cv_bridge
 
 ---
 
-## Visualization
-
-* Lane segmentation mask with center point
-* Ball detection with bounding circle and centroid
-* Useful for debugging and tuning thresholds
-
----
