@@ -115,7 +115,8 @@ ros2 launch bringup system.launch.py
 * **Topic**: `/image/image_raw`
 * **Message Type**: `sensor_msgs/Image`
 * All perception nodes subscribe to this topic
-
+### Lane Segmentation
+![Lane Detection](img/lane.png)
 ---
 
 ## Dependencies
