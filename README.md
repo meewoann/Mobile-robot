@@ -4,7 +4,7 @@ This project implements a **mobile robot** that can **follow a lane** and **dete
 
 ---
 
-## 🚀 Features
+## Features
 
 * **Lane Following (Deep Learning)**
 
@@ -25,7 +25,7 @@ This project implements a **mobile robot** that can **follow a lane** and **dete
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ```
 Camera Reader
@@ -41,9 +41,9 @@ All perception nodes subscribe to the same camera topic for synchronized process
 
 ---
 
-## 📦 Nodes Overview
+## Nodes Overview
 
-### 1️⃣ Lane Detection Node
+### Lane Detection Node
 
 * **Purpose**: Detect and segment the lane for robot navigation
 * **Method**: Deep Learning–based semantic segmentation
@@ -64,7 +64,7 @@ ros2 run lane_detect lane_detect_node.py
 
 ---
 
-### 2️⃣ Ball Detection Node
+### Ball Detection Node
 
 * **Purpose**: Detect a ball for grasping
 
@@ -92,7 +92,7 @@ ros2 run object_detection object_detection_node.py
 
 ---
 
-### 3️⃣ Bringup Node
+### Bringup Node
 
 * **Purpose**: Launch the entire robot system at once
 * **Includes**:
@@ -110,7 +110,7 @@ ros2 launch bringup system.launch.py
 
 ---
 
-## 📷 Camera Interface
+## Camera Interface
 
 * **Topic**: `/image/image_raw`
 * **Message Type**: `sensor_msgs/Image`
@@ -118,7 +118,7 @@ ros2 launch bringup system.launch.py
 
 ---
 
-## 🛠 Dependencies
+## Dependencies
 
 * ROS 2 Humble
 * OpenCV
@@ -128,30 +128,10 @@ ros2 launch bringup system.launch.py
 
 ---
 
-## 🧪 Visualization
+## Visualization
 
 * Lane segmentation mask with center point
 * Ball detection with bounding circle and centroid
 * Useful for debugging and tuning thresholds
 
 ---
-
-## 📌 Design Philosophy
-
-* **Lane detection** uses deep learning for robustness against lighting and noise
-* **Ball detection** uses classical CV for speed, simplicity, and explainability
-* Old-school vision where it works, AI where it matters 😎
-
----
-
-## 📄 License
-
-This project is for **research and educational purposes**.
-
----
-
-## ✨ Author
-
-Developed by an AI & Robotics Engineering student using ROS 2 Humble.
-
-If it moves, sees, and grabs — it’s robotics the traditional way 🤖
