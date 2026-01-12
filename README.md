@@ -108,14 +108,10 @@ ros2 run object_detection object_detection_node.py
 * **Purpose**: Provide simulated odometry for the mobile robot
 * **Type**: Simulation-based odom publisher
 
-<p align="center">
-  <img src="img/odom.png" width="450">
-</p>
-
 **Run command:**
+```
 ros2 run quad_odom odom_node.py
-
-
+```
 ---
 
 ### Simulation (sim_description)
@@ -126,12 +122,14 @@ ros2 run quad_odom odom_node.py
   * Visualization for testing perception and odometry
 
 <p align="center">
-  <img src="img/sim.png" width="500">
+  <img src="img/sim.png" width="45%">
+  <img src="img/rb.png" width="45%">
 </p>
 
 **Run command:**
+```
 ros2 launch sim_description display.launch.py
-
+```
 ### Bringup Node
 
 * **Purpose**: Launch the entire robot system at once
