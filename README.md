@@ -18,23 +18,29 @@ This project implements a **mobile robot** that can **follow a lane** and **dete
   * Color thresholding + contour extraction
   * Ball selected as the **largest contour by area**
 
-* **ROS 2 Humble Compatible**
+* **Simulation & Odometry**
 
-  * Modular node-based architecture
-  * Camera image shared via a common topic
+  * Simulated odometry for mobile robot
+  * URDF-based robot description
+  * Full system simulation support
 
 ---
 
 ## System Architecture
 
 ```
-Camera Reader
-   └── publishes /image/image_raw
-        ├── lane_detect_node
-        │     └── Deep Learning Lane Segmentation
-        │
-        └── object_detection_node
-              └── HSV Color Threshold + Contour Detection
+sim_description
+└── URDF + simulation launch
+└── camera_reader
+└── publishes /image/image_raw
+├── lane_detect_node
+│ └── Deep Learning Lane Segmentation
+│
+├── object_detection_node
+│ └── HSV Color Threshold + Contour Detection
+│
+└── quad_odom
+└── Simulated Odometry
 ```
 
 All perception nodes subscribe to the same camera topic for synchronized processing.
@@ -97,7 +103,34 @@ ros2 run lane_detect lane_detect_node.py
 ros2 run object_detection object_detection_node.py
 ```
 
+### Odometry Node (quad_odom)
+
+* **Purpose**: Provide simulated odometry for the mobile robot
+* **Type**: Simulation-based odom publisher
+
+<p align="center">
+  <img src="img/odom.png" width="450">
+</p>
+
+**Run command:**
+ros2 run quad_odom odom_node.py
+
+
 ---
+
+### Simulation (sim_description)
+
+* **Purpose**: Display and simulate the robot model
+* **Includes**:
+  * URDF robot description
+  * Visualization for testing perception and odometry
+
+<p align="center">
+  <img src="img/sim.png" width="500">
+</p>
+
+**Run command:**
+ros2 launch sim_description display.launch.py
 
 ### Bringup Node
 
@@ -107,28 +140,11 @@ ros2 run object_detection object_detection_node.py
   * Camera reader
   * Lane detection
   * Ball detection
-  * Other required system nodes
+  * Simulation
+  * Odometry
 
 **Run command:**
 
 ```
 ros2 launch bringup system.launch.py
 ```
-
----
-
-## Camera Interface
-
-* **Topic**: `/image/image_raw`
-* All perception nodes subscribe to this topic
-
-## Dependencies
-
-* ROS 2 Humble
-* OpenCV
-* NumPy
-* Deep Learning framework (PyTorch ,Ultralytics)
-* cv_bridge
-
----
-
