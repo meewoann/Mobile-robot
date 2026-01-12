@@ -2,6 +2,10 @@
 
 This project implements a **mobile robot** that can **follow a lane** and **detect / grasp a ball** using **ROS 2 Humble**. The system follows a classic robotics pipeline: perception → decision → actuation, combining **deep learning** and **traditional computer vision**, keeping things reliable and easy to debug.
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-CUDA-EE4C2C?logo=pytorch&logoColor=white)
+![ROS2](https://img.shields.io/badge/ROS2-Humble-0078D4?logo=ros&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLOv8-00FFAA?logo=ultralytics&logoColor=black)
 ---
 
 ## Features
